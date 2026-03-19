@@ -1,5 +1,4 @@
-const API_URL = "http://precieux-gi1.rf.gd/";
-
+const API_URL = "http://precieux-gi1.rf.gd/"; // Garde bien http ici
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Page chargée, tentative de récupération...");
     chargerEtudiants();
