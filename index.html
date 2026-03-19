@@ -2,36 +2,23 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>SGE - Gestion des Étudiants</title>
+    <title>Gestion des Étudiants</title>
     <link rel="stylesheet" href="style.css">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 <body>
-    <header>
-        <div class="logo">SGE - Immersion GI1</div>
-        <button class="btn-ajouter" onclick="window.location.href='form.html'">+ Ajouter un Étudiant</button>
-    </header>
-
-    <div class="container">
-        <div class="search-bar">
-            <input type="text" id="recherche" placeholder="Rechercher par nom ou filière..." onkeyup="rechercher()">
-        </div>
-
-       <table id="etudiants-table">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Email</th>
-            <th>Téléphone</th>
-            <th>Filière</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody id="listeEtudiants">
-        </tbody>
-</table>
-    </div>
+    <h1>Liste des Étudiants</h1>
+    <button onclick="window.location.href='form.html'">Ajouter un étudiant</button>
+    
+    <table id="etudiants-table">
+        <thead>
+            <tr>
+                <th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th><th>Filière</th><th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="listeEtudiants">
+            </tbody>
+    </table>
 
     <script src="script.js"></script>
 </body>
