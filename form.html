@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Ajouter un Étudiant</title>
     <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 <body>
     <div class="form-card">
         <h2>Nouvel Étudiant</h2>
-        <form action="ajouter_information.php" method="POST">
+        <form action="http://precieux-gi1.rf.gd/ajouter_information.php" >
             <input type="text" name="nom" placeholder="Nom" required>
             <input type="text" name="prenom" placeholder="Prénom" required>
             <input type="email" name="email" placeholder="Email" required>
