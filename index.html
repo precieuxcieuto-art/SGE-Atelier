@@ -2,22 +2,36 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Gestion des Étudiants</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGE - Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Liste des Étudiants</h1>
-    <button onclick="window.location.href='form.html'">+ Ajouter</button>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th><th>Filière</th><th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="listeEtudiants">
-            </tbody>
-    </table>
+
+    <div class="dashboard-container">
+        <div class="toolbar">
+            <h2>Gestion des Étudiants</h2>
+            <button class="btn-add" onclick="window.location.href='form.html'">
+                + Nouvel Étudiant
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Identité</th>
+                        <th>Contact</th>
+                        <th>Filière</th>
+                        <th style="text-align:right;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="listeEtudiants">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
