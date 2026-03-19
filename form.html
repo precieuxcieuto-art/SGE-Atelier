@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un Étudiant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-card">
+        <h2>Nouvel Étudiant</h2>
+        <form action="ajouter_information.php" method="POST">
+            <input type="text" name="nom" placeholder="Nom" required>
+            <input type="text" name="prenom" placeholder="Prénom" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="telephone" placeholder="Téléphone" required>
+            <input type="text" name="filiere" placeholder="Filière (ex: GI1)" required>
+            
+            <div class="btns">
+                <button type="button" onclick="window.location.href='index.html'" class="btn-cancel">Annuler</button>
+                <button type="submit" class="btn-save">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
