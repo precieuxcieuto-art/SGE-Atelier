@@ -8,18 +8,29 @@ function charger() {
     .then(data => {
         const t = document.getElementById('listeEtudiants');
         t.innerHTML = "";
+        
         data.forEach(e => {
-            t.innerHTML += `<tr>
-                <td>${e.nom}</td><td>${e.prenom}</td><td>${e.email}</td>
-                <td>${e.telephone}</td><td>${e.filiere}</td>
-                <td><button onclick="suppr(${e.id})" style="color:red">Supprimer</button></td>
-            </tr>`;
+            t.innerHTML += `
+                <tr>
+                    <td>
+                        <div style="font-weight:600;">${e.nom}</div>
+                        <div style="font-size:0.8rem; color:gray;">${e.prenom}</div>
+                    </td>
+                    <td>
+                        <div>${e.email}</div>
+                        <div style="font-size:0.8rem; color:#70a1ff;">${e.telephone}</div>
+                    </td>
+                    <td>
+                        <span style="background:#e3f2fd; color:#1976d2; padding:4px 10px; border-radius:20px; font-size:0.8rem; font-weight:bold;">
+                            ${e.filiere}
+                        </span>
+                    </td>
+                    <td style="text-align:right;">
+                        <button onclick="suppr(${e.id})" style="background:none; border:none; color:#ff4757; cursor:pointer; font-weight:bold;">
+                            Supprimer
+                        </button>
+                    </td>
+                </tr>`;
         });
-    }).catch(err => alert("Erreur : Activez le 'Contenu non sécurisé' dans votre navigateur"));
-}
-
-function suppr(id) {
-    if(confirm("Supprimer ?")) {
-        fetch(API_URL + 'supprimer_information.php?id=' + id).then(() => charger());
-    }
+    });
 }
