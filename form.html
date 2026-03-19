@@ -2,44 +2,47 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un Étudiant</title>
     <link rel="stylesheet" href="style.css">
+    <title>Ajouter un étudiant</title>
 </head>
 <body>
-    <div class="form-card">
-        <h2>Nouvel Étudiant</h2>
-        <form action="http://precieux-gi1.rf.gd/ajouter_information.php" method="POST">
-            <div class="input-group">
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" name="nom" placeholder="Ex: FANOU" required>
-            </div>
-
-            <div class="input-group">
-                <label for="prenom">Prénom</label>
-                <input type="text" id="prenom" name="prenom" placeholder="Ex: Precieux" required>
-            </div>
-
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required>
-            </div>
-
-            <div class="input-group">
-                <label for="telephone">Téléphone</label>
-                <input type="text" id="telephone" name="telephone" placeholder="0156789756" required>
-            </div>
-
-            <div class="input-group">
-                <label for="filiere">Filière</label>
-                <input type="text" id="filiere" name="filiere" placeholder="Ex: Génie Informatique" required>
-            </div>
-
-            <div class="btns">
-                <button type="button" onclick="window.location.href='index.html'" class="btn-cancel">Annuler</button>
-                <button type="submit" class="btn-save">Enregistrer</button>
-            </div>
+    <div class="container">
+        <h2>Inscription Étudiant</h2>
+        <form id="studentForm">
+            <input type="text" id="nom" placeholder="Nom" required>
+            <input type="text" id="prenom" placeholder="Prénom" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="telephone" placeholder="Téléphone" required>
+            <input type="text" id="filiere" placeholder="Filière" required>
+            <button type="submit">Enregistrer dans la base</button>
         </form>
+        <div id="msg" class="success-msg">Données enregistrées avec succès en base de données !</div>
+        <button onclick="window.location.href='index.html'" style="background: #95a5a6;">Retour</button>
     </div>
+
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('nom', document.getElementById('nom').value);
+            formData.append('prenom', document.getElementById('prenom').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('telephone', document.getElementById('telephone').value);
+            formData.append('filiere', document.getElementById('filiere').value);
+
+            // Envoi discret au PHP
+            fetch('http://precieux-gi1.rf.gd/ajouter_information.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(() => {
+                document.getElementById('msg').style.display = 'block';
+                document.getElementById('studentForm').reset();
+                setTimeout(() => { document.getElementById('msg').style.display = 'none'; }, 3000);
+            })
+            .catch(err => alert("Erreur lors de l'envoi."));
+        });
+    </script>
 </body>
 </html>
